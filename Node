@@ -1,0 +1,44 @@
+A Node is an individual unit of work in a LangGraph workflow. Each node performs one specific task, such as calling an LLM, executing Python code, querying a database, or using an external API. After completing its task, 
+the node updates the shared state and passes control to the next node.
+
+Simple Definition
+
+A Node is one step that performs one specific job.
+
+Example
+
+Bus booking chatbot:
+
+User Request
+      │
+      ▼
+Understand User  ← Node
+      │
+      ▼
+Search Bus       ← Node
+      │
+      ▼
+Check Seats      ← Node
+      │
+      ▼
+Payment          ← Node
+      │
+      ▼
+Generate Ticket  ← Node
+
+Every box is a Node.
+
+Real-Life Example
+
+Imagine a hospital:
+
+Reception → Node
+Doctor → Node
+Lab → Node
+Pharmacy → Node
+
+====
+
+
+
+Each person performs one job.
