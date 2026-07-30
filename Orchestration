@@ -2,7 +2,8 @@ Orchestration
 
 Description
 
-Orchestration is the coordination and management of the entire workflow. It determines which node runs next, what information is passed between nodes, how decisions are made, and how the workflow handles branching, retries, loops, and completion.
+Orchestration is the coordination and management of the entire workflow. It determines which node runs next, what information is passed between nodes, 
+how decisions are made, and how the workflow handles branching, retries, loops, and completion.
 
 Simple Definition
 
