@@ -1,0 +1,44 @@
+Relationship Between Node, State, and Orchestration
+
+             LangGraph
+         (Orchestration)
+                │
+                ▼
+         Understand User
+             (Node)
+                │
+                ▼
+           Search Bus
+             (Node)
+                │
+                ▼
+         Check Seats
+             (Node)
+                │
+                ▼
+            Payment
+             (Node)
+                │
+                ▼
+        Generate Ticket
+             (Node)
+
+Every Node reads and updates the same State.
+
+====
+
+Comparison Table
+
+| Concept           | Description                                              | Example                                                            |
+| ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------ |
+| **Node**          | A single task or operation in the workflow               | Search buses, process payment, send confirmation                   |
+| **State**         | Shared data that carries information across the workflow | Customer name, travel date, seat number, payment status            |
+| **Orchestration** | The logic that coordinates and controls the workflow     | Decides the order of execution, branching, retries, and completion |
+
+=========
+
+One-Line Summary
+Node → Does the work.
+State → Stores the information.
+Orchestration → Controls the workflow.
+Comparison Table
