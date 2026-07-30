@@ -1,0 +1,197 @@
+LangGraph is a framework for building AI workflows where multiple agents or functions collaborate, share information, and make decisions using a graph structure.
+
+===
+
+What is LangGraph?
+
+LangGraph is an open-source framework built on top of LangChain for creating stateful, multi-agent AI applications. It allows you to represent an AI workflow as a graph, where each node performs a task and edges determine how the workflow moves from one step to another.
+
+Unlike a simple linear pipeline, LangGraph supports branching, loops, conditional decisions, and shared state between steps.
+
+=====
+
+Why Was LangGraph Created?
+
+Imagine building a bus ticket booking chatbot.
+
+The chatbot needs to:
+
+Understand the user's request.
+Find available buses.
+Ask for missing details if needed.
+Check seat availability.
+Calculate the fare.
+Process payment.
+Generate the ticket.
+Send a confirmation.
+
+A simple sequential pipeline can struggle when:
+
+the user changes their destination,
+payment fails,
+information is incomplete,
+the workflow needs to retry or loop.
+
+LangGraph makes these kinds of workflows much easier to manage.
+
+===
+
+How LangGraph Works
+User
+   │
+   ▼
+Start
+   │
+   ▼
+Intent Agent
+   │
+   ▼
+Search Agent
+   │
+   ▼
+Booking Agent
+   │
+   ▼
+Payment Agent
+   │
+   ▼
+Ticket Agent
+   │
+   ▼
+End
+
+Each box is a node.
+
+The arrows are edges.
+
+===
+
+Core Components
+
+Core Components| Component        | Description                               | Example                   |
+| ---------------- | ----------------------------------------- | ------------------------- |
+| Graph            | The overall workflow                      | Bus booking process       |
+| Node             | A step in the workflow                    | Search buses              |
+| Edge             | Connection between nodes                  | Search → Payment          |
+| State            | Shared information                        | Source, destination, date |
+| Conditional Edge | Chooses the next node based on conditions | Seats available?          |
+| Start Node       | Entry point                               | User sends a request      |
+| End Node         | Workflow completion                       | Ticket generated          |
+
+
+=======
+
+Example Workflow
+
+User Request
+      │
+      ▼
+Intent Detection
+      │
+      ▼
+Search Buses
+      │
+      ▼
+Seats Available?
+     / \
+   Yes  No
+   │     │
+   ▼     ▼
+Payment  Ask User
+   │
+   ▼
+Generate Ticket
+   │
+   ▼
+Send Email
+
+=====
+
+What is State?
+
+State is shared information that every node can access and update.
+
+Example:
+
+state = {
+    "source": "Chennai",
+    "destination": "Madurai",
+    "date": "15 August",
+    "seat": "A12",
+    "price": 850
+}
+
+Every node reads from and writes to this state.
+
+=======
+
+Example of State Flow
+User
+ │
+ ▼
+Source = Chennai
+ │
+ ▼
+Destination = Madurai
+ │
+ ▼
+Date = 15 August
+ │
+ ▼
+Search Results
+ │
+ ▼
+Selected Bus
+ │
+ ▼
+Payment Status
+ │
+ ▼
+Ticket Generated
+
+The state grows as the workflow progresses.
+
+======
+
+Why Use LangGraph?
+
+Without LangGraph:
+
+User
+ │
+ ▼
+Step 1
+ │
+ ▼
+Step 2
+ │
+ ▼
+Step 3
+ │
+ ▼
+End
+
+Only a simple linear flow.
+
+With LangGraph:
+
+             User
+               │
+               ▼
+        Understand Query
+               │
+      ┌────────┴────────┐
+      ▼                 ▼
+Search Bus         Ask Question
+      │                 │
+      └────────┬────────┘
+               ▼
+          Payment
+               │
+               ▼
+        Generate Ticket
+
+It supports branching and returning to earlier steps.
+
+=====
+
