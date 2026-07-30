@@ -1,0 +1,55 @@
+2. State
+Description
+
+A State is a shared data structure that stores all the information collected and generated during the workflow. Every node can read from the state and update it with new information, allowing the workflow to maintain context across multiple steps.
+
+Simple Definition
+
+State is the shared memory that stores all information during the workflow.
+
+Example
+
+Initially
+
+{}
+
+After the first node
+
+{
+  "source": "Chennai"
+}
+
+After the second node
+
+{
+  "source": "Chennai",
+  "destination": "Madurai"
+}
+
+After payment
+
+{
+  "source": "Chennai",
+  "destination": "Madurai",
+  "seat": "A12",
+  "price": 850,
+  "payment": "Success"
+}
+
+Every node uses the same state.
+
+Real-Life Example
+
+Imagine a patient's medical file.
+
+The receptionist writes the patient's name.
+
+The doctor adds the diagnosis.
+
+The laboratory adds the test results.
+
+The pharmacy adds the medicines.
+
+Everyone updates the same file.
+
+That file is the State.
