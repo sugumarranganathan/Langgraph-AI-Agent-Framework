@@ -1,0 +1,45 @@
+Orchestration
+
+Description
+
+Orchestration is the coordination and management of the entire workflow. It determines which node runs next, what information is passed between nodes, how decisions are made, and how the workflow handles branching, retries, loops, and completion.
+
+Simple Definition
+
+Orchestration is the process of controlling and coordinating all the nodes in the correct order.
+
+Example
+User
+ │
+ ▼
+Understand User
+ │
+ ▼
+Search Bus
+ │
+ ▼
+Seats Available?
+ ├── Yes → Payment
+ └── No  → Search Again
+
+LangGraph decides:
+
+Which node starts first.
+Which node runs next.
+Whether to retry.
+Whether to end the workflow.
+
+This decision-making process is Orchestration.
+
+Real-Life Example
+
+Imagine an airport.
+
+Many departments work together:
+
+Check-in
+Security
+Immigration
+Boarding
+
+The airport's operating system ensures passengers move through these steps in the correct order. That coordination is orchestration.
