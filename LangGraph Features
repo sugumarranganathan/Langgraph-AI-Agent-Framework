@@ -1,0 +1,17 @@
+LangGraph Features
+
+| Feature             | Description                                 |
+| ------------------- | ------------------------------------------- |
+| Multi-agent support | Multiple agents collaborate                 |
+| Shared state        | Information persists across nodes           |
+| Conditional routing | Different paths based on conditions         |
+| Loops               | Retry or gather more information            |
+| Memory              | Maintains workflow context                  |
+| Tool calling        | Uses APIs, databases, and external services |
+| Human-in-the-loop   | Pause and wait for user input               |
+| Streaming           | Stream intermediate or final outputs        |
+| Error handling      | Retry or recover from failures              |
+
+
+======
+
