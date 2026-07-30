@@ -1,0 +1,268 @@
+comparison between Edge (Normal Edge) and Conditional Edge in LangGraph.
+========================================================================
+
+| Feature                   | Edge (Normal Edge)                          | Conditional Edge                                                   |
+| ------------------------- | ------------------------------------------- | ------------------------------------------------------------------ |
+| **Definition**            | Connects one node directly to another node. | Connects one node to multiple possible nodes based on a condition. |
+| **Flow**                  | Fixed                                       | Dynamic                                                            |
+| **Decision Making**       | ❌ No                                        | ✅ Yes                                                              |
+| **Routing**               | Always follows the same path                | Chooses the next path based on logic                               |
+| **Number of Next Nodes**  | One                                         | One of many possible nodes                                         |
+| **Execution Path**        | Sequential                                  | Branching                                                          |
+| **Method**                | `add_edge()`                                | `add_conditional_edges()`                                          |
+| **Uses Router Function?** | ❌ No                                        | ✅ Yes                                                              |
+| **Suitable For**          | Simple workflows                            | Intelligent AI agent routing                                       |
+| **Complexity**            | Easy                                        | Moderate                                                           |
+| **Example**               | Planner → Writer                            | Planner → Writer or Researcher or Coder                            |
+| **Best Use Case**         | Fixed pipeline                              | Multi-Agent AI, Decision Making                                    |
+
+
+==========
+
+Example Flow
+Edge (Normal Edge)
+START
+   |
+Planner
+   |
+Researcher
+   |
+Writer
+   |
+END
+
+Python:
+
+graph.add_edge("planner", "researcher")
+graph.add_edge("researcher", "writer")
+graph.add_edge("writer", END)
+Conditional Edge
+                 Product
+               /
+Planner -------
+               \
+                \
+                 FAQ
+                  \
+                   Payment
+
+Python:
+
+graph.add_conditional_edges(
+    "planner",
+    router,
+    {
+        "product": "product_agent",
+        "faq": "faq_agent",
+        "payment": "payment_agent",
+    }
+)
+
+=========
+
+Easy way to remember
+Edge (Normal Edge) = One road → Always the same destination.
+Conditional Edge = Road junction → Chooses the destination based on a condition or decision.
+
+In LangGraph, add_edge() is used for fixed sequential workflows, while add_conditional_edges() is used to build intelligent, decision-driven Multi-Agent AI applications.
+
+=========
+
+| Use Edge (Normal Edge)   | Use Conditional Edge         |
+| ------------------------ | ---------------------------- |
+| Fixed workflow           | Dynamic workflow             |
+| Sequential processing    | Decision-based routing       |
+| One next step            | Multiple possible next steps |
+| Simple automation        | Multi-Agent AI systems       |
+| Data processing pipeline | AI Chatbots, RAG, Agentic AI |
+
+
+=========
+
+Real AI Example
+
+Suppose you built a Restaurant AI.
+
+User asks
+
+"I want Pizza"
+
+Planner
+
+↓
+
+Food Agent
+
+↓
+
+Cart Agent
+
+↓
+
+END
+
+User asks
+
+"Where is your restaurant?"
+
+Planner
+
+↓
+
+FAQ Agent
+
+↓
+
+END
+
+User asks
+
+"My payment failed"
+
+Planner
+
+↓
+
+Payment Agent
+
+↓
+
+END
+
+The Planner decides which agent should execute.
+
+========
+
+Supply Chain Example
+
+Your Supply Chain AI has these agents:
+
+Data Agent
+
+Risk Agent
+
+Delay Agent
+
+Solution Agent
+
+Report Agent
+
+Flow
+
+START
+   |
+Data Agent
+   |
+Delay?
+ /      \
+Yes      No
+ |         |
+Risk      Report
+ |
+Solution
+ |
+Report
+ |
+END
+
+If delay exists
+
+Data
+ ↓
+Risk
+ ↓
+Solution
+ ↓
+Report
+
+If no delay
+
+Data
+ ↓
+Report
+
+This is a conditional edge.
+
+=========
+
+Travel Booking Example
+User
+  |
+Planner
+
+Planner decides
+
+Bus Booking?
+
+↓
+
+Booking Agent
+
+OR
+
+Hotel Booking?
+
+↓
+
+Hotel Agent
+
+OR
+
+Cancel Ticket?
+
+↓
+
+Cancellation Agent
+
+OR
+
+Refund?
+
+↓
+
+Refund Agent
+
+Each branch is connected using conditional edges.
+
+=======
+
+LangGraph Syntax Comparison
+Normal Edge
+graph.add_edge("planner", "researcher")
+
+Always goes to researcher.
+
+Conditional Edge
+graph.add_conditional_edges(
+    "planner",
+    router,
+    {
+        "researcher": "researcher",
+        "writer": "writer",
+        "coder": "coder",
+    }
+)
+
+The router function decides whether execution goes to researcher, writer, or coder.
+
+===========
+
+| Feature              | Normal Edge          | Conditional Edge                                |
+| -------------------- | -------------------- | ----------------------------------------------- |
+| Decision making      | ❌ No                 | ✅ Yes                                           |
+| Number of next nodes | One                  | Multiple                                        |
+| Execution            | Fixed                | Dynamic                                         |
+| Method               | `add_edge()`         | `add_conditional_edges()`                       |
+| Used for             | Sequential workflows | Agent routing, branching, decision-making       |
+| Example              | Planner → Writer     | Planner → Writer **or** Researcher **or** Coder |
+
+
+=======
+
+In Agentic AI and Multi-Agent systems, conditional edges are one of the most important features. 
+They allow a planner or router agent to dynamically select the appropriate specialized agent based on the user's request or the current workflow state, 
+making the system intelligent rather than strictly sequential.
+
+========
+
+
