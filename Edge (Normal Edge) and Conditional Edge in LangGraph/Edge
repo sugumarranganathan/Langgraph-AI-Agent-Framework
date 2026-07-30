@@ -1,0 +1,35 @@
+In LangGraph, edges define how execution moves from one node (agent/function) to another. Think of nodes as tasks and edges as the roads connecting those tasks.
+
+. Edge (Normal Edge)
+
+A normal edge always moves from one node to the next.
+
+Flow
+START
+  |
+  v
+Node A
+  |
+  v
+Node B
+  |
+  v
+END
+
+No decision is made.
+
+Example
+graph.add_edge("planner", "researcher")
+graph.add_edge("researcher", "writer")
+graph.add_edge("writer", END)
+Execution
+Planner
+   ↓
+Researcher
+   ↓
+Writer
+   ↓
+END
+
+=====
+
