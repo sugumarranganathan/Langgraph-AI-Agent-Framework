@@ -1,0 +1,29 @@
+| Feature                | LangChain | LangGraph   |
+| ---------------------- | --------- | ----------- |
+| Linear chains          | ✅         | ✅           |
+| Multi-agent workflows  | Limited   | ✅           |
+| Shared state           | Basic     | Advanced    |
+| Conditional routing    | Limited   | ✅           |
+| Loops                  | Difficult | ✅           |
+| Complex orchestration  | Limited   | Excellent   |
+| Workflow visualisation | Limited   | Graph-based |
+
+
+========
+
+Where LangGraph is Used
+
+| Application         | Example                                   |
+| ------------------- | ----------------------------------------- |
+| Bus booking         | Search, booking, payment, ticketing       |
+| Restaurant chatbot  | Menu search, ordering, payment            |
+| Healthcare          | Appointment scheduling and follow-up      |
+| Banking             | Loan processing and document verification |
+| Customer support    | Issue routing and escalation              |
+| Travel planning     | Flights, hotels, itinerary creation       |
+| HR                  | Resume screening and interview scheduling |
+| Document processing | Review, summarisation, approval workflows |
+
+
+=====
+
