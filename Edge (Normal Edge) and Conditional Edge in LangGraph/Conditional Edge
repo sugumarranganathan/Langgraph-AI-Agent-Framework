@@ -1,0 +1,106 @@
+Conditional Edge
+
+A conditional edge chooses the next node based on some condition.
+
+Instead of one road, there are multiple possible roads.
+
+Flow
+               Yes
+              /
+Planner -----> Researcher
+     \
+      \
+       No
+        \
+         Writer
+
+The graph decides where to go.
+
+Example
+
+Suppose your chatbot checks whether the user asked a question about products.
+
+If Product Question
+
+User
+   |
+Planner
+   |
+Product Agent
+   |
+END
+
+If General Question
+
+User
+   |
+Planner
+   |
+General Agent
+   |
+END
+
+=======
+
+Python Example
+def router(state):
+
+    if state["type"] == "product":
+        return "product_agent"
+
+    else:
+        return "general_agent"
+
+Add conditional edge
+
+graph.add_conditional_edges(
+    "planner",
+    router,
+    {
+        "product_agent": "product_agent",
+        "general_agent": "general_agent",
+    }
+)
+
+========
+
+How it works
+
+User asks
+
+"Price of iPhone?"
+
+Planner
+
+↓
+
+Router checks
+
+Is Product?
+
+Yes
+
+↓
+
+Product Agent
+
+Another user asks
+
+"Who are you?"
+
+Planner
+
+↓
+
+Router
+
+Is Product?
+
+No
+
+↓
+
+General Agent
+
+========
+
