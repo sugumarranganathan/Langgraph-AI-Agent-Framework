@@ -18,3 +18,38 @@ Agent       Agent      Agent
                 ▼
           Final Response
 
+======
+
+Bus Ticket Booking Chatbot
+User
+ │
+ ▼
+Intent Agent
+ │
+ ▼
+Route Search Agent
+ │
+ ▼
+Bus Selection Agent
+ │
+ ▼
+Seat Availability Agent
+ │
+ ▼
+Fare Calculation Agent
+ │
+ ▼
+Payment Agent
+ │
+ ▼
+Ticket Generation Agent
+ │
+ ▼
+Notification Agent
+ │
+ ▼
+End
+
+Each agent is responsible for one task, while LangGraph coordinates the workflow and shares state between them.
+
+====
