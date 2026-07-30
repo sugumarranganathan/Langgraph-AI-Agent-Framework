@@ -1,0 +1,33 @@
+| Advantage                 | Benefit                                    |
+| ------------------------- | ------------------------------------------ |
+| Modular design            | Easier to build and maintain               |
+| Reusable nodes            | Use the same logic in multiple workflows   |
+| Supports branching        | Handles real-world decision-making         |
+| Shared state              | Avoids passing variables manually          |
+| Fault tolerance           | Easier retries and recovery                |
+| Scalable                  | Suitable for complex AI systems            |
+| Multi-agent orchestration | Coordinates specialised agents effectively |
+
+
+====
+
+Limitations
+
+| Limitation                | Description                                 |
+| ------------------------- | ------------------------------------------- |
+| Learning curve            | More concepts than a simple chain           |
+| Additional design effort  | Requires planning of nodes and state        |
+| Overkill for simple tasks | Not necessary for straightforward workflows |
+| State management          | Poorly designed state can become complex    |
+
+
+=======
+
+LangGraph is a framework for building stateful, graph-based AI workflows.
+It extends LangChain with multi-agent orchestration, conditional routing, loops, and shared state.
+It is particularly useful for applications such as booking systems, customer support, research assistants, 
+and other complex workflows where multiple steps, decisions, and retries are required.
+For your multi-agent bus ticket booking chatbot, LangGraph is a strong fit because it can coordinate specialised 
+agents (search, booking, payment, notifications) while maintaining a consistent state throughout the conversation.
+
+=======
