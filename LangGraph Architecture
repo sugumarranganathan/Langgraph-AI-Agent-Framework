@@ -1,0 +1,20 @@
+              User
+                │
+                ▼
+          LangGraph Workflow
+                │
+      ┌─────────┼─────────┐
+      ▼         ▼         ▼
+Intent     Search     Booking
+Agent       Agent      Agent
+      │         │         │
+      └─────────┼─────────┘
+                ▼
+          Payment Agent
+                │
+                ▼
+          Ticket Agent
+                │
+                ▼
+          Final Response
+
